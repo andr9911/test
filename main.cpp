@@ -64,6 +64,8 @@ int main(int argc, char * argv[])
             read_buf = val_name;
             val_name = "";
             std::remove_copy(read_buf.begin(), read_buf.end(), std::back_inserter(val_name), '\r');
+            if(val_name=="") continue; //вдруг значение value пустое
+
             values_iter = values.find(val_name);
 
             if (values_iter == values.end()) //не нашлось, придется добавлять(((
